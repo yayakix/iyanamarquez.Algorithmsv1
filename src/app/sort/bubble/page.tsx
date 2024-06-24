@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 
 
 export default function BubbleSort() {
-    const startingArr = [4, 3, 6, 7, 5, 0, 9, 2, 1]
+    const startingArr = [4, 3, 6, 7, 5, 0, 9, 2, 1, 12, 33, 0]
 
     const [arr, setArr] = useState(startingArr)
 
