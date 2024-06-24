@@ -1,43 +1,21 @@
-// const startArr = [1, 9, 5, 3, 2, 7, 6, 8, 4];
-
-// const startArr = [9, 5, 3, 11, 20, 7, 6, 8, 4, 1];
-// const selectionSort = (startArr: []) => {
-//   let array = [...startArr];
-//   let newArr = [];
-//   while (array.length) {
-//     let lowestVal = array[0];
-//     let lowestIdx = 0;
-//     for (let i = 0; i < array.length; i++) {
-//       if (array[i] < lowestVal) {
-//         lowestVal = array[i];
-//         lowestIdx = i;
-//       }
-//     }
-//     newArr.push(array.splice(lowestIdx, 1)[0]);
-//     console.log([newArr] + [array]);
-
-//     // return array;
-//   }
-//   return newArr + array;
-// };
-
-// console.log(selectionSort(startArr));
-
-// const startArr = [1, 9, 5, 3, 2, 7, 6, 8, 4];
-
-const selectionSort = (startArr: []) => {
-  let array = [...startArr];
-  let lowestVal = array[0];
-  let lowestIdx = 0;
-  for (let i = 0; i < array.length + 1; i++) {
-    if (array[i] < lowestVal) {
-      lowestVal = array[i];
-      lowestIdx = i;
+// // The Selection Sort algorithm finds the lowest value in an array and moves it to the front of the array.
+let steps = [];
+const selectionSort = (unsortedArr: number[], offset: number) => {
+  let array = [...unsortedArr];
+  // loop through arr
+  let lowestValIdx = offset;
+  for (let j = offset + 1; j < array.length; j++) {
+    if (array[lowestValIdx] > array[j]) {
+      lowestValIdx = j;
     }
   }
-  let num = array.splice(lowestIdx, 1)[0];
-
-  return { newNum: num, array: array };
+  [array[lowestValIdx], array[offset]] = [array[offset], array[lowestValIdx]];
+  steps.push([...array]);
+  if (offset === array.length - 2) {
+    return { array: array, steps: steps };
+  } else {
+    return selectionSort(array, offset + 1);
+  }
 };
 
 export default selectionSort;

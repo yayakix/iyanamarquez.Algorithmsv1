@@ -3,7 +3,8 @@
 // swap if the left value (i) is less than the right value (i+1) -> swapped detected
 // skip if the opposite^
 // do these steps on the arr until no more swaps are made
-const startArr = [3, 4, 5, 1, 2, 72, 6, 8, 7, 90];
+const startArr = [4, 3, 6, 7, 5, 0, 9, 2, 1, 12, 33, 0];
+let steps = [];
 const bubbleSort = (array: number[]) => {
   let swapped = false;
   let sortArr = [...array];
@@ -16,15 +17,15 @@ const bubbleSort = (array: number[]) => {
       sortArr[i] = rightNumber;
       sortArr[i + 1] = leftNumber;
       swapped = true;
+      steps.push([...sortArr]);
     }
   }
+  // steps.push([...sortArr]);
+
   if (swapped) {
     return bubbleSort(sortArr);
   }
-  return { array: sortArr, swapped: swapped };
+  return { array: sortArr, steps: steps };
 };
-console.log("hello");
-
-console.log(bubbleSort(startArr));
-
 export default bubbleSort;
+console.log(bubbleSort(startArr));
