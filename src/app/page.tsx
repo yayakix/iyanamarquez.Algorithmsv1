@@ -1,11 +1,12 @@
 'use client'
 import Image from "next/image";
 import bubbleSort from "@/algorithms/bubbleSortSteps";
+
 import { useEffect, useState } from "react";
 
 
 export default function Home() {
-  const startingArr = [4, 3, 6, 7, 5, 0, 9, 2, 1]
+  const startingArr = [3, 4, 5, 1, 2, 72, 6, 8, 7, 90, 91, 93];
 
   const [arr, setArr] = useState(startingArr)
 
@@ -27,12 +28,12 @@ export default function Home() {
 
   console.log(bubbleSort(startingArr).array)
   return (
-    <div className="flex flex-col w-screen justify-center items-center">
-      <h1 className="text-3xl my-10">Bubble Sort</h1>
+    <div className="flex flex-col w-screen justify-center items-center bg-purple-400">
+      <a href="/sort/bubble">
+        <button>Bubble Sort</button>
 
-      <div className="bg-black flex">
-        {arr.map((x) => { return <span className='mx-4 bg-emerald-400 w-10' style={{ color: 'blue', height: `${(x + 1) * 10}px` }} ></span> })}
-      </div >
+      </a>
+
     </div>
   );
 }
