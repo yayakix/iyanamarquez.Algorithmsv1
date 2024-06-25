@@ -27,4 +27,3 @@ const insertionSort = (startArr: []) => {
 };
 
 export default insertionSort;
-console.log(insertionSort(startArr));
