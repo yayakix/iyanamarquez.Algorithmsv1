@@ -46,10 +46,10 @@ export default function InsertionSort(props) {
         <div className="flex flex-col justify-center items-center">
             <h1 className="text-3xl my-10">Insertion Sort</h1>
             <div className="flex flex-row">
-                <div className="bg-red-400 flex">
-                    {newArray.map((x) => { return <span className='mx-4 bg-emerald-400 w-10' style={{ color: 'blue', height: `${(x + 1) * 10}px` }} >{x}</span> })}
+                <div className=" flex">
+                    {newArray.map((x) => { return <span className='mx-4 bg-purple-400 w-10' style={{ color: 'blue', height: `${(x + 1) * 10}px` }} >{x}</span> })}
                 </div >
-                <div className="bg-purple-400 flex">
+                <div className=" flex">
                     {arr.map((x) => { return <span className='mx-4 bg-emerald-400 w-10' style={{ color: 'blue', height: `${(x + 1) * 10}px` }} >{x}</span> })}
                 </div >
             </div>
