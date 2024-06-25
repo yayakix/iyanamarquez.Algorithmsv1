@@ -30,13 +30,13 @@ const quicksort = (array: number[]) => {
   //   swap pivot and fl
   [arr[FLidx], arr[arr.length - 1]] = [arr[arr.length - 1], arr[FLidx]];
 
-  //   // Recursively sort the left and right partitions
+  // Recursively sort the left and right partitions
   let leftPart = quicksort(arr.slice(0, FLidx));
   let rightPart = quicksort(arr.slice(FLidx + 1));
 
   return [...leftPart, arr[FLidx], ...rightPart];
 };
 
-let testArr = [2, 1, 78, 3, 2, 1, 86, 3, 5, 7, 0, 1, 4, 5, 7, 0, 1, 4];
+let testArr = [9, 8, 7, 6, 5, 4, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0, 3, 2, 1, 0];
 
 console.log(quicksort(testArr));
