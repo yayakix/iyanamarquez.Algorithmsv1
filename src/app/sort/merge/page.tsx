@@ -1,65 +1,72 @@
 'use client'
 import Image from "next/image";
-import mergeWithSteps from "@/algorithms/mergeSort";
+// import mergeWithSteps from "@/algorithms/mergeSort";
+import wrappedMergeSort from "@/alg-practice/mergesortprac";
 import { useEffect, useState } from "react";
 
 
+const NodeComponent = ({ node, sorted }) => {
+
+    return <div className="flex items-center flex-col text-center">
+        <div>{(sorted ? node.sortedArray : node.unsortedArray).join(", ")}</div>
+        {(node.leftChild ||
+            node.rightChild) && (
+                <div
+                    style={{
+                        display: "flex",
+                        flexDirection: "row",
+                        padding: "10px",
+                        border: "1px solid #000",
+                        borderRadius: 8,
+                        minWidth: 100,
+                    }}
+                >
+                    {node.leftChild && (
+                        <div style={{ minWidth: 100 }}>
+                            <NodeComponent sorted={sorted} node={node.leftChild} />
+                        </div>
+                    )}
+                    {node.rightChild && (
+                        <div style={{ minWidth: 100 }}>
+                            <NodeComponent sorted={sorted} node={node.rightChild} />
+                        </div>
+                    )}
+                </div>
+            )}
+    </div>
+}
+
+const startingArr = [5, 4, 7, 3, 1, 6, 8, 2, 9]
+let solution = wrappedMergeSort(startingArr)
+
 export default function MergeSort(props: { array: number[] }) {
     const startingArr = [5, 4, 7, 3, 1, 6, 8, 2, 9]
-    const [final, setFinal] = useState(startingArr);
-    const [arr, setArr] = useState(startingArr);
-    const [steps, setSteps] = useState([]);
+    const [sorted, setSorted] = useState(false);
+    const [sortedArr, setSortedArr] = useState(startingArr)
+
+
+
 
     useEffect(() => {
-        const { sortedArr, steps: { sortedArrSteps, leftSide, rightSide } } = mergeWithSteps(startingArr);
-        setSteps([...leftSide, ...rightSide, ...sortedArrSteps]);
-        // setArr(sortedArr);
+        setSortedArr(solution.sortedArray)
+
     }, []);
-
-    const animateSorting = () => {
-        steps.map((x, idx) => {
-            if (x.length > 1) {
-                console.log('x', x)
-                setTimeout(() => {
-                    setArr(x)
-                }, 1000 * idx)
-
-            }
-        })
-        console.log('hit')
-        const { sortedArr } = mergeWithSteps(startingArr);
-
-        setArr(sortedArr)
-
-    };
-    const resetArray = () => {
-        setArr(startingArr);
-        animateSorting();
-    };
 
     return (
         <div className="flex flex-col justify-center items-center">
             <h1 className="text-3xl my-10">Merge Sort</h1>
             <div className="flex flex-row">
                 <div className="flex">
-                    {arr.map((x, idx) => (
-                        <span
-                            key={idx}
-                            className={`mx-4 bg-emerald-400 w-10 `}
-                            style={{ height: `${(x + 1) * 10}px` }}
-                        >
-                            {x}
-                        </span>
-                    ))}
 
+                    <NodeComponent node={solution.metadata.node} sorted={sorted} />
                 </div>
             </div>
-            <button
+            <button onClick={() => setSorted(!sorted)}
                 className="rounded p-2 border-2 border-green-500 hover:bg-emerald-100 hover:text-black"
-                onClick={resetArray}
             >
-                Restart
+                {sorted ? "Sort" : "Unsort"}
             </button>
+            {sorted && sortedArr}
 
         </div>
     );
