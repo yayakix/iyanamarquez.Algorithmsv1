@@ -43,10 +43,6 @@ export default function MergeSort(props: { array: number[] }) {
     const startingArr = [5, 4, 7, 3, 1, 6, 8, 2, 9]
     const [sorted, setSorted] = useState(false);
     const [sortedArr, setSortedArr] = useState(startingArr)
-
-
-
-
     useEffect(() => {
         setSortedArr(solution.sortedArray)
 
@@ -57,7 +53,6 @@ export default function MergeSort(props: { array: number[] }) {
             <h1 className="text-3xl my-10">Merge Sort</h1>
             <div className="flex flex-row">
                 <div className="flex">
-
                     <NodeComponent node={solution.metadata.node} sorted={sorted} />
                 </div>
             </div>
