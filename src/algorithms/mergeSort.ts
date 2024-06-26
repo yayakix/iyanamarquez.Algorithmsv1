@@ -2,8 +2,8 @@
 then merges those sublists into a sorted list. */
 
 let testArr = [5, 4, 7, 3, 1, 6, 8, 2, 9];
-function mergeWithSteps(array) {
-  let arr = [...array];
+function mergeWithSteps(array: number[]) {
+  let arr: number[] = [...array];
   let steps = { sortedArrSteps: [], leftSide: [], rightSide: [] };
 
   function mergeSort(arr: number[]): number[] {

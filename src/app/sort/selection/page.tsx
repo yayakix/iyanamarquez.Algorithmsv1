@@ -3,9 +3,9 @@ import selectionSort from "@/algorithms/selectionSort";
 import { useEffect, useState } from "react";
 
 
-export default function SelectionSort(props) {
-    // const startingArr = [12, 8, 5, 4, 3, 6, 7, 5, 0, 9, 2, 1, 17, 33, 0]
-    const startingArr = props.array
+export default function SelectionSort(props: { array: number[] }) {
+    const startingArr = [12, 8, 5, 4, 3, 6, 7, 5, 0, 9, 2, 1, 17, 33, 0]
+    // const startingArr: number[] = props.array
 
     const [arr, setArr] = useState(startingArr)
     const [steps, setSteps] = useState([])
@@ -13,7 +13,8 @@ export default function SelectionSort(props) {
     useEffect(() => {
         // console.log(arr)
         const { array, steps } = selectionSort(startingArr, 0)
-        // setArr(array)
+        console.log('hi')
+        setArr(array)
         setSteps(steps)
     }, [])
 

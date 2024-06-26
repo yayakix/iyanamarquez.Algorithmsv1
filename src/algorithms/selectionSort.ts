@@ -1,6 +1,9 @@
 // // The Selection Sort algorithm finds the lowest value in an array and moves it to the front of the array.
 let steps = [];
 const selectionSort = (unsortedArr: number[], offset: number) => {
+  if (!Array.isArray(unsortedArr)) {
+    throw new Error("Input is not an array");
+  }
   let array = [...unsortedArr];
   // loop through arr
   let lowestValIdx = offset;

@@ -4,7 +4,7 @@ import mergeWithSteps from "@/algorithms/mergeSort";
 import { useEffect, useState } from "react";
 
 
-export default function MergeSort(props) {
+export default function MergeSort(props: { array: number[] }) {
     const startingArr = [5, 4, 7, 3, 1, 6, 8, 2, 9]
     const [final, setFinal] = useState(startingArr);
     const [arr, setArr] = useState(startingArr);

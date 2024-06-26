@@ -1,6 +1,5 @@
-const quicksort = (array: number[]) => {
-  let arr = [...array];
-
+const quicksort = (array: number[]): number => {
+  let arr: number[] = [...array];
   if (arr.length < 2) {
     return arr;
   }
