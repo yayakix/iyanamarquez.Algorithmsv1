@@ -1,4 +1,4 @@
-function binarySearch(nums, target) {
+function binarySearch(nums: number[], target: number) {
   let lowIdx = 0;
   let highIdx = nums.length;
 

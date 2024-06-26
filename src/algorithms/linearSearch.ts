@@ -1,4 +1,4 @@
-function linearSearch(object, thingToFind) {
+function linearSearch(object: any, thingToFind: any) {
   for (let i = 0; i < object.length; i++) {
     if (object[i].name === thingToFind) {
       return i;
