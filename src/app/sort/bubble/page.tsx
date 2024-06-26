@@ -5,8 +5,8 @@ import { useEffect, useState } from "react";
 
 
 export default function BubbleSort(props: { array: [] }) {
-    // const startingArr = [12, 8, 5, 4, 3, 6, 7, 1, 12, 33, 0]
-    const startingArr = props.array
+    const startingArr = [12, 8, 5, 4, 3, 6, 7, 1, 12, 33, 0]
+    // const startingArr = props.array
     const [arr, setArr] = useState(startingArr)
     const [steps, setSteps] = useState([])
 

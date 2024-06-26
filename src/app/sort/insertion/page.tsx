@@ -5,8 +5,8 @@ import { useEffect, useState } from "react";
 
 
 export default function InsertionSort(props) {
-    // const startingArr = [33, 12, 16, 34, 36, 7, 5, 9, 2, 1, 46]
-    const startingArr = props.array
+    const startingArr = [33, 12, 16, 34, 36, 7, 5, 9, 2, 1, 46]
+    // const startingArr = props.array
 
     const [arr, setArr] = useState(startingArr)
     const [newArray, setNewArray] = useState<number[]>([])
