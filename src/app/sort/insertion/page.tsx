@@ -52,10 +52,10 @@ export default function InsertionSort() {
             <div className="bg-black flex border border-white rounded mb-4 min-w-3/4 min-h-24 p-4">
                 {/* <div className="flex flex-row p-2"> */}
                 <div className=" flex ">
-                    {newArray.map((x) => { return <span className='mx-2 bg-purple-400 w-2' style={{ color: 'blue', height: `${(x + 1) * 5}px` }} >{ }</span> })}
+                    {newArray.map((x) => { return <span key={x} className='mx-2 bg-purple-400 w-2' style={{ color: 'blue', height: `${(x + 1) * 5}px` }} >{ }</span> })}
                 </div >
                 <div className=" flex">
-                    {arr.map((x) => { return <span className='mx-2 bg-emerald-400 w-2' style={{ color: 'blue', height: `${(x + 1) * 5}px` }} >{ }</span> })}
+                    {arr.map((x) => { return <span key={x} className='mx-2 bg-emerald-400 w-2' style={{ color: 'blue', height: `${(x + 1) * 5}px` }} >{ }</span> })}
                 </div >
             </div>
 

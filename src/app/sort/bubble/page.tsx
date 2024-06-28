@@ -11,7 +11,7 @@ export default function BubbleSort() {
 
 
     useEffect(() => {
-        const { array, steps } = bubbleSort(startingArr)
+        const { steps } = bubbleSort(startingArr)
         setSteps(steps)
         steps.map((step, idx) => {
             setTimeout(() => {
@@ -39,7 +39,7 @@ export default function BubbleSort() {
                 }}>Start</button>
             </div>
             <div className="bg-black flex border border-white rounded p-4 mb-4 min-w-3/4 max-h-32 overflow-hidden">
-                {arr.map((x: number) => { return <span className='mx-2 bg-emerald-400 w-2' style={{ color: 'blue', height: `${(x + 1) * 5}px` }} ></span> })}
+                {arr.map((x: number) => { return <span key={x} className='mx-2 bg-emerald-400 w-2' style={{ color: 'blue', height: `${(x + 1) * 5}px` }} ></span> })}
             </div >
 
         </div>
