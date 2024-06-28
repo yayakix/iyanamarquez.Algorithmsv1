@@ -4,7 +4,7 @@ import Link from "next/link"
 const SelectionDropdown = () => {
     const [value, setValue] = useState(false)
 
-    const handleSelect = async (e) => {
+    const handleSelect = async (e: any) => {
         console.log(e.target.value)
         setValue(await e.target.value)
     }
