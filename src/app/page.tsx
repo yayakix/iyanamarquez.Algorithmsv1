@@ -12,20 +12,11 @@ export default function Home() {
   const [arr, setArr] = useState(startingArr)
 
   return (
-    <div>
-      {/* <h1 className="text-6xl text-center mt-10 ">Algs Visualizer</h1> */}
-      <div className="mt-10">
-        {/* <SelectionDropdown /> */}
-      </div>
-
-      <div className="flex flex-col justify-center items-center grid grid-col-4 ">
-        <div className="flex flex-wrap gap-16">
-          {/* <BubbleSort array={startingArr} />
-          <InsertionSort array={startingArr} />
-          <SelectionSort array={startingArr} />
-          <MergeSort array={startingArr} /> */}
-        </div>
-      </div>
+    <div className="overflow-y-scroll flex flex-col justify-center items-center md:flex-col md:flex-wrap">
+      <BubbleSort array={startingArr} />
+      <SelectionSort array={startingArr} />
+      <InsertionSort array={startingArr} />
+      <MergeSort array={startingArr} />
     </div>
   );
 }
