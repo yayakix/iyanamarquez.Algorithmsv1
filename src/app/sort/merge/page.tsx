@@ -17,17 +17,19 @@ const NodeComponent = ({ node, sorted }) => {
                         flexDirection: "row",
                         padding: "10px",
                         border: "1px solid #000",
-                        borderRadius: 8,
-                        minWidth: 100,
+                        // borderRadius: 8,
+                        // minWidth: 100,
                     }}
                 >
                     {node.leftChild && (
-                        <div style={{ minWidth: 100 }}>
+                        <div style={{}}>
+                            /
                             <NodeComponent sorted={sorted} node={node.leftChild} />
                         </div>
                     )}
                     {node.rightChild && (
-                        <div style={{ minWidth: 100 }}>
+                        <div style={{}}>
+                            \
                             <NodeComponent sorted={sorted} node={node.rightChild} />
                         </div>
                     )}
@@ -50,18 +52,20 @@ export default function MergeSort(props: { array: number[] }) {
 
     return (
         <div className="flex flex-col justify-center items-center">
-            <h1 className="text-3xl my-10">Merge Sort</h1>
-            <div className="flex flex-row">
-                <div className="flex">
-                    <NodeComponent node={solution.metadata.node} sorted={sorted} />
-                </div>
+            <div className="flex flex-row items-center ">
+                <h1 className="text-xl ">Merge Sort</h1>
+                <button onClick={() => setSorted(!sorted)} className="p-0 h-10 mx-4 mb-2 rounded w-16 border-2 border-green-500 hover:bg-emerald-100 hover:text-black ">
+                    {sorted ? "Unsort" : "Sort"}</button>
             </div>
-            <button onClick={() => setSorted(!sorted)}
-                className="rounded p-2 border-2 border-green-500 hover:bg-emerald-100 hover:text-black"
-            >
-                {sorted ? "Sort" : "Unsort"}
-            </button>
-            {sorted && sortedArr}
+
+            <div className="bg-black flex border border-white rounded mb-4 min-w-3/4 min-h-24 p-4 pb-0 ">
+                <div className="flex flex-col justify-center items-center">
+                    {sorted && sortedArr}
+                    <NodeComponent node={solution.metadata.node} sorted={sorted} />
+
+                </div>
+
+            </div>
 
         </div>
     );

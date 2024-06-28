@@ -20,9 +20,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <h1 className="text-6xl text-center my-6 ">Algs Visualizer</h1>
+        <h1 className="text-xl text-center mt-4 ">Algs Visualizer</h1>
         <SelectionDropdown />
-
         {children}</body>
     </html>
   );
