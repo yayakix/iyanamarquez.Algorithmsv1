@@ -1,6 +1,4 @@
-import { metadata } from "@/app/layout";
-
-function merge(left, right) {
+function merge(left: any, right: any) {
   let newLeft = [...left];
   let newRight = [...right];
 
@@ -16,12 +14,13 @@ function merge(left, right) {
   }
   return [...arr, ...newLeft, ...newRight];
 }
-
-function wrappedMergeSort(arr) {
-  function mergeSortAgain(arr) {
+let otherprops: any;
+function wrappedMergeSort(arr: number[]) {
+  function mergeSortAgain(arr: any[]) {
     let thisNode = {
       sortedArray: arr,
       unsortedArray: arr,
+      ...otherprops,
     };
 
     let array = [...arr];
