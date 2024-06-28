@@ -1,14 +1,11 @@
 'use client'
-import Image from "next/image";
 import insertionSort from "@/algorithms/insertionSort";
 import { useEffect, useState } from "react";
 
 
-export default function InsertionSort(props) {
-    const startingArr = [2, 8, 5, 4, 3, 6, 7, 1, 8, 9, 0]
-    // const startingArr = props.array
-
-    const [arr, setArr] = useState(startingArr)
+export default function InsertionSort() {
+    const startingArr: number[] = [2, 8, 5, 4, 3, 6, 7, 1, 8, 9, 0]
+    const [arr, setArr] = useState<number[]>(startingArr)
     const [newArray, setNewArray] = useState<number[]>([])
 
     useEffect(() => {

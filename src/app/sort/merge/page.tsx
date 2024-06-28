@@ -5,7 +5,7 @@ import wrappedMergeSort from "@/alg-practice/mergesortprac";
 import { useEffect, useState } from "react";
 
 
-const NodeComponent = ({ node, sorted }) => {
+const NodeComponent = ({ node, sorted }: any) => {
 
     return <div className="flex items-center flex-col text-center">
         <div>{(sorted ? node.sortedArray : node.unsortedArray).join(", ")}</div>
@@ -41,7 +41,7 @@ const NodeComponent = ({ node, sorted }) => {
 const startingArr = [5, 4, 7, 3, 1, 6, 8, 2, 9]
 let solution = wrappedMergeSort(startingArr)
 
-export default function MergeSort(props: { array: number[] }) {
+export default function MergeSort() {
     const startingArr = [5, 4, 7, 3, 1, 6, 8, 2, 9]
     const [sorted, setSorted] = useState(false);
     const [sortedArr, setSortedArr] = useState(startingArr)

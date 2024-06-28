@@ -1,14 +1,13 @@
 'use client'
-import Image from "next/image";
 import bubbleSort from "@/algorithms/bubbleSort";
 import { useEffect, useState } from "react";
 
 
-export default function BubbleSort(props: { array: [] }) {
+export default function BubbleSort() {
     const startingArr = [2, 8, 5, 4, 3, 6, 7, 1, 8, 9, 0]
     // const startingArr = props.array
-    const [arr, setArr] = useState(startingArr)
-    const [steps, setSteps] = useState([])
+    const [arr, setArr] = useState<any>(startingArr)
+    const [steps, setSteps] = useState<any>([])
 
 
     useEffect(() => {
@@ -24,7 +23,7 @@ export default function BubbleSort(props: { array: [] }) {
 
     const showShort = () => {
         setArr(startingArr)
-        steps.map((step, idx) => {
+        steps.map((step: any, idx: number) => {
             setTimeout(() => {
                 setArr(step)
             }, 500 * idx)
@@ -40,7 +39,7 @@ export default function BubbleSort(props: { array: [] }) {
                 }}>Start</button>
             </div>
             <div className="bg-black flex border border-white rounded p-4 mb-4 min-w-3/4 max-h-32 overflow-hidden">
-                {arr.map((x) => { return <span className='mx-2 bg-emerald-400 w-2' style={{ color: 'blue', height: `${(x + 1) * 5}px` }} ></span> })}
+                {arr.map((x: number) => { return <span className='mx-2 bg-emerald-400 w-2' style={{ color: 'blue', height: `${(x + 1) * 5}px` }} ></span> })}
             </div >
 
         </div>

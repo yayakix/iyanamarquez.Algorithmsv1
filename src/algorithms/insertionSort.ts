@@ -1,6 +1,6 @@
 const startArr = [1, 9, 5, 3, 2, 7, 6, 8, 4];
 
-const insertionSort = (startArr: []) => {
+const insertionSort = (startArr: number[]) => {
   let array = [...startArr];
   let newArray: number[] = [];
   let continueVar = true;
