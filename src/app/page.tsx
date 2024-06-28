@@ -13,10 +13,10 @@ export default function Home() {
 
   return (
     <div className="overflow-y-scroll flex flex-col justify-center items-center md:flex-col md:flex-wrap">
-      <BubbleSort array={startingArr} />
-      <SelectionSort array={startingArr} />
-      <InsertionSort array={startingArr} />
-      <MergeSort array={startingArr} />
+      <BubbleSort />
+      <SelectionSort />
+      <InsertionSort />
+      <MergeSort />
     </div>
   );
 }
