@@ -1,47 +1,40 @@
 'use client'
 import bubbleSort from "@/algorithms/bubbleSort";
 import { useEffect, useState } from "react";
-
+import AlgBox from "@/components/AlgBox";
 
 export default function BubbleSort() {
-    const startingArr = [2, 8, 5, 4, 3, 6, 7, 1, 8, 9, 0]
-    // const startingArr = props.array
-    const [arr, setArr] = useState<any>(startingArr)
-    const [steps, setSteps] = useState<any>([])
-
+    const startingArr = [2, 9, 5, 4, 3, 7, 6, 1, 8, 0];
+    const [arr, setArr] = useState<number[]>(startingArr);
+    const [steps, setSteps] = useState<number[][]>([]);
 
     useEffect(() => {
-        const { steps } = bubbleSort(startingArr)
-        setSteps(steps)
-        steps.map((step, idx) => {
-            setTimeout(() => {
-                setArr(step)
-            }, 1000 * idx)
-        })
-    }, [])
-
+        const { steps } = bubbleSort(startingArr);
+        setSteps(steps);
+    }, []);
 
     const showShort = () => {
-        setArr(startingArr)
-        steps.map((step: any, idx: number) => {
+        setArr(startingArr);
+        steps.forEach((step, idx) => {
             setTimeout(() => {
-                setArr(step)
-            }, 500 * idx)
-        })
-    }
+                setArr(step);
+            }, 500 * idx);
+        });
+    };
+
+    const algContent = (
+        <div className="flex h-36 justify-center">
+            {arr.map((x, idx) => (
+                <span
+                    key={idx}
+                    className="mx-2 bg-emerald-400 w-4 md:w-6"
+                    style={{ color: 'blue', height: `${(x + 1) * 15}px` }}
+                ></span>
+            ))}
+        </div>
+    );
 
     return (
-        <div className="flex flex-col justify-center items-center">
-            <div className="flex flex-row items-center ">
-                <h1 className="text-xl my-4">Bubble Sort</h1>
-                <button className="p-0 h-10 mx-4 rounded w-16 border-2 border-green-500 hover:bg-emerald-100 hover:text-black " onClick={() => {
-                    showShort()
-                }}>Start</button>
-            </div>
-            <div className="bg-black flex border border-white rounded p-4 mb-4 min-w-3/4 max-h-32 overflow-hidden">
-                {arr.map((x: number) => { return <span key={x} className='mx-2 bg-emerald-400 w-2' style={{ color: 'blue', height: `${(x + 1) * 5}px` }} ></span> })}
-            </div >
-
-        </div>
+        <AlgBox algName="Bubble Sort" algContent={algContent} onStart={showShort} />
     );
 }

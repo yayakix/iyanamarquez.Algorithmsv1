@@ -3,29 +3,30 @@
 // swap if the left value (i) is less than the right value (i+1) -> swapped detected
 // skip if the opposite^
 // do these steps on the arr until no more swaps are made
-const startArr = [4, 3, 6, 7, 5, 0, 9, 2, 1, 12, 33, 0];
-let steps = [];
 const bubbleSort = (array: number[]) => {
-  let swapped = false;
+  let steps: number[][] = [];
   let sortArr = [...array];
-  for (let i = 0; i < array.length; i++) {
-    let leftNumber = sortArr[i];
-    let rightNumber = sortArr[i + 1];
-    // ex. [2,1]
-    if (leftNumber > rightNumber) {
-      // Swap vals
-      sortArr[i] = rightNumber;
-      sortArr[i + 1] = leftNumber;
-      swapped = true;
-      steps.push([...sortArr]);
-    }
-  }
-  // steps.push([...sortArr]);
+  let n = sortArr.length;
+  let swapped;
 
-  if (swapped) {
-    return bubbleSort(sortArr);
-  }
+  do {
+    swapped = false;
+    for (let i = 0; i < n - 1; i++) {
+      let leftNumber = sortArr[i];
+      let rightNumber = sortArr[i + 1];
+      if (leftNumber > rightNumber) {
+        // Swap vals
+        sortArr[i] = rightNumber;
+        sortArr[i + 1] = leftNumber;
+        swapped = true;
+        steps.push([...sortArr]);
+      }
+    }
+    n--; // Reduce the range of the inner loop
+  } while (swapped);
   return { array: sortArr, steps: steps };
 };
+
+// console.log(bubbleSort([2, 8, 5, 4, 3, 6, 7, 1]));
+
 export default bubbleSort;
-console.log(bubbleSort(startArr));

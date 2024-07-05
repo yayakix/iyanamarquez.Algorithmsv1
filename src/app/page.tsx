@@ -12,7 +12,7 @@ export default function Home() {
   const [arr, setArr] = useState(startingArr)
 
   return (
-    <div className="overflow-y-scroll flex flex-col justify-center items-center md:flex-col md:flex-wrap">
+    <div className="overflow-y-scroll flex flex-row justify-center flex-wrap gap-2">
       <BubbleSort />
       <SelectionSort />
       <InsertionSort />
